@@ -38,6 +38,9 @@ describe '#add_biker' do
     biker = Biker.new("Kenny", 30)
     biker2 = Biker.new("Athena", 15)
     bike_club1.add_biker(biker)
+
+    expect(bike_club1.bikers).to eq([biker])
+
     bike_club1.add_biker(biker2)
 
     expect(bike_club1.bikers).to eq([biker, biker2])
@@ -80,6 +83,10 @@ describe "#best_time" do
     biker2.log_ride(ride1, 91.1)
     bike_club1.add_biker(biker)
     bike_club1.add_biker(biker2)
+
+    expect(bike_club1.best_time(ride1)).to eq(biker2)
+
+    biker.log_ride(ride1, 87.5)
 
     expect(bike_club1.best_time(ride1)).to eq(biker)
   end

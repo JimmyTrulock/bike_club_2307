@@ -32,10 +32,10 @@ class BikeClub
 
   def best_time(ride)
     rider = ""
-    time = 0
+    time = 999
     @bikers.each do |biker|
       if biker.personal_record(ride) != false
-        if biker.personal_record(ride) > time 
+        if biker.personal_record(ride) < time 
           time = biker.personal_record(ride)
           rider = biker
         end
